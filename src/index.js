@@ -1,5 +1,5 @@
 import dva from 'dva';
-import { addLocaleData, IntlProvider } from 'react-intl';
+import { addLocaleData } from 'react-intl';
 import './index.less';
 import 'antd/dist/antd.less';
 import { browserHistory } from 'dva/router';

@@ -32,11 +32,16 @@
     "no-bitwise": [0],
     "no-cond-assign": [0],
     "import/no-unresolved": [0],
-    "require-yield": [1]
+    "require-yield": [1],
+    "react/jsx-uses-react": 1,
+    "react/jsx-uses-vars": 1
   },
   "parserOptions": {
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true
-    }
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "ecmaVersion": 6,
+    "sourceType": "module"
   }
 }

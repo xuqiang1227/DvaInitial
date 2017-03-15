@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, Route} from 'dva/router';
+import {Router} from 'dva/router';
 import IndexPage from './routes/IndexPage';
 import Layout from "./routes/Layout";
 import Example from './components/Example';
