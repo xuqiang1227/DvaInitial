@@ -1,0 +1,33 @@
+{
+  "entry": "src/index.js",
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr",
+        "transform-runtime",
+        [
+          "import",
+          {
+            "libraryName": ["antd"],
+            "style": true
+          }
+        ]
+      ]
+    },
+    "production": {
+      "extraBabelPlugins": [
+        "transform-runtime"
+      ]
+    }
+  },
+  "proxy": {
+      "/api": {
+        "target": "http://localhost:8080/"
+      },
+      "/wechat": {
+        "target": "http://localhost:8000",
+        "pathRewrite": {"^/wechat": "/wechat.html"}
+      }
+  },
+  "multipage": true
+}
