@@ -1,6 +1,7 @@
 import React from 'react';
 import * as styles from './Layout.less';
 import Icon from 'antd/lib/icon';
+import {Link} from 'dva/router'
 
 export default ({layout, dispatch}) => {
   return (
@@ -11,7 +12,7 @@ export default ({layout, dispatch}) => {
         onClick={() => dispatch({type: 'layout/changeMenuMode', menuMode: layout.menuMode === 'vertical'? 'inline' : 'vertical'})}
       />
       <div className={styles['lang']}>
-        <span onClick={() => dispatch({type: 'i18n/setLocale', locale: 'zh_CN'})}>中文</span> | <span onClick={() => dispatch({type: 'i18n/setLocale', locale: 'en_US'})}>英文</span>
+        <span onClick={() => dispatch({type: 'i18n/setLocale', locale: 'zh_CN'})}>中文</span> | <span onClick={() => dispatch({type: 'i18n/setLocale', locale: 'en_US'})}>英文</span> | <Link to="/">退出</Link>
       </div>
     </div>
   );

@@ -1,29 +1,59 @@
 
 .normal {
-  font-family: Georgia, sans-serif;
-  margin-top: 3em;
-  text-align: center;
-}
-
-.title {
-  font-size: 2.5rem;
-  font-weight: normal;
-  letter-spacing: -1px;
-}
-
-.welcome {
-  height: 328px;
-  background: url(../assets/yay.jpg) no-repeat center 0;
-  background-size: 388px 328px;
-}
-
-.list {
-  font-size: 1.2em;
-  margin-top: 1.8em;
-  list-style: none;
-  line-height: 1.5em;
-}
-
-.list code {
-  background: #f7f7f7;
+  background: url('../assets/login_bg.jpg') no-repeat center 0;
+  -moz-background-size:100% 100%;
+  background-size:100% 100%;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  .login {
+    display: inherit;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .title {
+      font-size: 2.2rem;
+      color: #ffffff;
+    }
+    .login-form {
+      padding: 5rem;
+      .form {
+        border: 2px solid #dddddd;
+        border-radius: 1rem;
+        .form-title {
+          border-radius: 0.8rem 0.8rem 0 0;
+          background-color: #42647F;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 1rem;
+          font-size: 1.2rem;
+          color: #ffffff;
+        }
+        .form-login {
+          padding: 3rem 3rem 2rem 3rem;
+          border-radius: 0 0 0.8rem 0.8rem;
+          .form-input {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            .form-item {
+              min-width: 20rem;
+              :global(.ant-input-lg) {
+                height: 3rem;
+              }
+            }
+            .form-btn {
+              width: 100%;
+              height:2.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
 }
