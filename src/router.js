@@ -1,10 +1,10 @@
 import React from 'react';
 import {Router} from 'dva/router';
 import IndexPage from './routes/IndexPage';
-import Layout from "./routes/Layout";
+import Layout from './routes/Layout';
 import Example from './components/Example';
-
-import App from "./routes/App.js";
+import App from './routes/App.js';
+import Test from './routes/Test.js';
 
 export default ({history}) => {
   const routes = [
@@ -26,6 +26,11 @@ export default ({history}) => {
               path: 'example',
               component: Example,
               breadcrumbName: 'example.test'
+            },
+            {
+              path: 'nav2',
+              component: Test,
+              breadcrumbName: 'example.test.2'
             }
           ]
         }
