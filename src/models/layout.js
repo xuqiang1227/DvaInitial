@@ -11,12 +11,11 @@ export default {
   },
   effects: {},
   subscriptions: {
-    set({dispatch, history}) {
-      return history.listen(() => {
-        // if(pathname === '/') {
-          dispatch({type: 'i18n/setLocale', locale: 'zh_CN'});
-        // }
-      })
-    }
+    // set({dispatch, history}) {
+    //   return history.listen(() => {
+    //     if(pathname === '/') {
+    //     }
+    //   })
+    // }
   }
 };

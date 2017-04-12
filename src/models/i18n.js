@@ -17,5 +17,9 @@ export default {
     }
   },
   effects: {},
-  subscriptions: {}
+  subscriptions: {
+    set({dispatch}) {
+      dispatch({type: 'setLocale', locale: 'zh_CN'});
+    }
+  }
 };
