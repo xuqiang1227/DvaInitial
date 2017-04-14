@@ -18,8 +18,25 @@ export default {
   },
   effects: {},
   subscriptions: {
-    set({dispatch}) {
-      dispatch({type: 'setLocale', locale: 'zh_CN'});
+    set({dispatch, history}) {
+      return history.listen(() => {
+          let lang = localStorage.getItem('locale');
+          const type = navigator.appName;
+          if (!lang) {
+            if (type === 'Netscape') {
+              lang = navigator.language
+            } else {
+              lang = navigator.userLanguage
+            }
+            let sec = lang.split('-');
+            sec[1] = sec[1].toUpperCase();//解决safari浏览器下初化无法加载中英文的问题。
+            lang = sec.join('_');
+
+          }
+          dispatch({type: 'setLocale', locale: lang});
+          localStorage.setItem('locale', lang);
+        }
+      )
     }
   }
 };
