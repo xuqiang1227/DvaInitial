@@ -15,10 +15,8 @@ export default ({layout}) => {
           </Link>
         </AntMenu.Item>
         <AntMenu.Item key="2">
-          <Link to="/main/nav2">
-            <Icon type="video-camera"/>
-            <span className={layout.menuMode !== 'inline' && styles['nav-text']}>nav 2</span>
-          </Link>
+          <Icon type="video-camera"/>
+          <span className={layout.menuMode !== 'inline' && styles['nav-text']}>nav 2</span>
         </AntMenu.Item>
         <AntMenu.Item key="3">
           <Icon type="upload"/>
