@@ -1,22 +1,38 @@
 {
   "private": true,
   "scripts": {
+    "clean": "rimraf dist/*",
     "start": "roadhog server",
+    "copy": "copyfiles -f ./node_modules/es5-shim/es5-shim.min.js ./node_modules/es5-shim/es5-sham.min.js ./node_modules/html5shiv/dist/html5shiv.min.js ./node_modules/matchmedia-polyfill/matchMedia.js ./dist/js",
+    "copyht": "copyfiles -f .htaccess ./dist",
     "build": "roadhog build",
-    "lint": "eslint --ext .js src",
-    "precommit": "npm run lint"
+    "dist": "npm run clean-temp && npm run build-app && npm run backup-dist && npm run build-web && npm run cp-dist && npm run copy && npm run restore-configuration && npm run clean-temp",
+    "lint": "eslint --ext .js src test",
+    "cp-app-configuration": "copyfiles -f ./build_template/app.roadhogrc.js ./",
+    "rename-app-configuration": "mv app.roadhogrc.js .roadhogrc.js",
+    "build-app": "npm run cp-app-configuration && npm run rename-app-configuration && npm run build",
+    "cp-web-configuration": "copyfiles -f ./build_template/web.roadhogrc.js ./",
+    "rename-web-configuration": "mv web.roadhogrc.js .roadhogrc.js",
+    "build-web": "npm run cp-web-configuration && npm run rename-web-configuration && npm run build",
+    "backup-dist": "copyfiles -f ./dist/* ./temp",
+    "cp-dist": "copyfiles -f ./temp/* ./dist",
+    "restore-configuration": "copyfiles -f ./build_template/.roadhogrc.js ./",
+    "clean-temp": "rimraf temp"
   },
   "engines": {
     "install-node": "6.9.2"
   },
   "dependencies": {
-    "antd": "^2.10.0",
+    "antd": "^2.10.4",
+    "antd-mobile": "^1.1.3",
     "babel-runtime": "^6.9.2",
-    "dva": "^1.3.0-beta.3",
+    "dva": "^1.3.0-beta.4",
     "dva-loading": "^0.2.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-intl": "^2.2.3"
+    "react-intl": "^2.2.3",
+    "es6-promise": "^4.1.0",
+    "intl": "^1.2.5"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -24,12 +40,16 @@
     "babel-plugin-import": "^1.1.1",
     "babel-plugin-transform-runtime": "^6.9.0",
     "eslint": "^3.19.0",
+    "cash-cp": "^0.2.0",
+    "cash-mv": "^0.2.0",
+    "copyfiles": "^1.2.0",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.8.0",
     "expect": "^1.20.2",
     "husky": "^0.12.0",
+    "postcss-pxtorem": "^4.0.1",
     "redbox-react": "^1.3.6",
     "roadhog": "^0.5.4"
   }
