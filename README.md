@@ -16,7 +16,7 @@ npm start
 ```
 npm run build
 ```
-* 移到设备高清
+* 移动设备高清
 ```
 npm run dist
 ```
