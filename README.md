@@ -21,7 +21,7 @@ npm run build
 npm run dist
 ```
 
-#打包配置publicPath
+# 打包配置publicPath
 * 修改roadhog.js中的publicPath
 * nginx配置
 * 例如：publicPath配置为 /assets/
