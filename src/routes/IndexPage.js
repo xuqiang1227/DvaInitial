@@ -7,6 +7,7 @@ import Input from 'antd/lib/input';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
 import {routerRedux} from 'dva/router';
+import {APP_PATH} from '../utils/constant';
 
 const IndexPage = ({form, dispatch}) => {
   const {getFieldDecorator, validateFields} = form;
@@ -26,7 +27,7 @@ const IndexPage = ({form, dispatch}) => {
                   validateFields((err, values) => {
                     if (!err) {
                       window.console.log('Received values of form: ', values);
-                      dispatch(routerRedux.push('/main/example'));
+                      dispatch(routerRedux.push(APP_PATH.example));
                     }
                   });
                 }

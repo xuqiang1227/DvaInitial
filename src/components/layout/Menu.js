@@ -3,13 +3,14 @@ import * as styles from './Layout.less';
 import AntMenu from 'antd/lib/menu';
 import Icon from 'antd/lib/icon';
 import {Link} from 'dva/router';
+import {APP_PATH} from '../../utils/constant';
 
 export default ({layout}) => {
   return (
     <div className={styles['menu']}>
       <AntMenu theme="dark" mode={layout.menuMode} defaultSelectedKeys={['1']}>
         <AntMenu.Item key="1">
-          <Link to="/main/example">
+          <Link to={APP_PATH.example}>
             <Icon type="user"/>
             <span className={layout.menuMode !== 'inline' && styles['nav-text']}>nav 1</span>
           </Link>

@@ -47,5 +47,7 @@ export default {
     }
   },
   multipage: true,
-  "theme": "./src/styles/theme.js"
+  "theme": "./src/styles/theme.js",
+  publicPath: '/',
+  define: {publicPath: '/'}
 }
