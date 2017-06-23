@@ -1,4 +1,5 @@
 import dva from 'dva';
+import 'core-js/fn/object/assign';
 require('es6-promise').polyfill();
 import 'intl';
 import { addLocaleData } from 'react-intl';
