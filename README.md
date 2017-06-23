@@ -20,3 +20,34 @@ npm run build
 ```
 npm run dist
 ```
+
+#打包配置publicPath
+* 修改roadhog.js中的publicPath
+* nginx配置
+* 例如：publicPath配置为 /assets/
+```(javascript)
+  server {
+    listen 8009;
+    erver_name localhost;    
+	  location /assets {
+      alias html/visitor;
+      #root  html/visitor;
+      index  index.html index.htm;
+		  try_files $uri $uri/ /assets/index.html;
+    }
+    ocation /assets/main {
+		  alias html/visitor;
+      #root   html/visitor;
+      index  index.html index.htm;
+		  try_files $uri $uri /assets/index.html;
+    }
+    location /api/ {
+      proxy_pass   http://192.168.0.19:8202/api/;
+    }
+    location /assets/virsical {    
+      alias html/visitor;
+		  index  visitApp.html;
+      try_files $uri $uri/ /assets/visitApp.html;
+    }
+  }
+```
