@@ -17,6 +17,7 @@ addLocaleData(Ii8n[ENGLISH]);
 const app = dva({
   history: browserHistory,
   onError: (e) => {
+    window.console.error(e);
     message.error(e.message);
   }
 });
