@@ -1,11 +1,8 @@
 import React from 'react';
 import {connect} from 'dva';
 import * as styles from './IndexPage.less';
-import Form from 'antd/lib/form';
+import {Form, Input, Button, Icon} from 'antd';
 const FormItem = Form.Item;
-import Input from 'antd/lib/input';
-import Button from 'antd/lib/button';
-import Icon from 'antd/lib/icon';
 import {routerRedux} from 'dva/router';
 import {APP_PATH} from '../utils/constant';
 

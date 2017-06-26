@@ -1,6 +1,6 @@
 import React from 'react';
 import * as styles from './Layout.less';
-import Icon from 'antd/lib/icon';
+import {Icon} from 'antd';
 import {Link} from 'dva/router'
 
 export default ({layout, dispatch}) => {

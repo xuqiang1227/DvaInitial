@@ -3,7 +3,6 @@ require('es6-promise').polyfill();
 import 'intl';
 import { addLocaleData } from 'react-intl';
 import './index.less';
-import 'antd/dist/antd.less';
 import { browserHistory } from 'dva/router';
 import message from 'antd/lib/message';
 import createLoading from 'dva-loading';

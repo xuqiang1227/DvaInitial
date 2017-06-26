@@ -2,8 +2,7 @@ import React from 'react';
 import * as styles from './Layout.less';
 import DvaMenu from './Menu';
 import Top from './Top';
-import Breadcrumb from 'antd/lib/breadcrumb';
-import Layout from 'antd/lib/layout';
+import {Breadcrumb, Layout} from 'antd';
 const { Header, Content, Sider } = Layout;
 
 

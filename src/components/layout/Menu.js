@@ -1,7 +1,6 @@
 import React from 'react';
 import * as styles from './Layout.less';
-import AntMenu from 'antd/lib/menu';
-import Icon from 'antd/lib/icon';
+import {Menu as AntMenu, Icon} from 'antd';
 import {Link} from 'dva/router';
 import {APP_PATH} from '../../utils/constant';
 
