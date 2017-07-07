@@ -1,6 +1,6 @@
 const path = require('path');
 const pxtorem = require('postcss-pxtorem');
-
+const publicPath = '/';
 
 const svgSpriteDirs = [
   require.resolve('antd-mobile').replace(/warn\.js$/, ''), // antd-mobile 内置svg
@@ -52,6 +52,6 @@ export default {
   multipage: true,
   svgSpriteLoaderDirs: svgSpriteDirs,
   "theme": "./src/styles/theme.js",
-  publicPath: '/',
-  define: {publicPath: '/'}
+  publicPath,
+  define: {publicPath}
 }
