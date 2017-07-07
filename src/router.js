@@ -4,11 +4,12 @@ import IndexPage from './routes/IndexPage';
 import Layout from './routes/Layout';
 import Example from './components/Example';
 import App from './routes/App.js';
+import {PATH_HOME} from './utils/constant';
 
 export default ({history}) => {
   const routes = [
     {
-      path: '/',
+      path: PATH_HOME,
       component: App,
       indexRoute: {component: IndexPage},
       childRoutes: [
