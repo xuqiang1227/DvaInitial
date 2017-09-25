@@ -4,9 +4,10 @@ import Layout from '../components/layout/Main';
 import {injectIntl} from 'react-intl';
 import App from './App';
 
-const Main = injectIntl(({routes, dispatch, children, layout, intl}) => {
+const Main = injectIntl((props) => {
+  const {dispatch, children, layout, intl} = props;
   return (
-    <Layout routes={routes} dispatch={dispatch} layout={layout} intl={intl}>
+    <Layout dispatch={dispatch} layout={layout} intl={intl}>
       {children}
     </Layout>
   );

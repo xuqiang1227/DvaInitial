@@ -17,7 +17,7 @@ export default ({history, app}) => {
       <Switch>
         <Route exact path={'/'} component={dynamic({app, component: () => import('./routes/IndexPage')})}/>
         <Route exact path={'/main/example'}
-               component={ExampleIndex}/>
+               render={() => <ExampleIndex breadcrumbName={'layout.index'}/>}/>
         <Route exact path={'/main/test'} component={TestIndex}/>
       </Switch>
   </Router>;

@@ -2,7 +2,8 @@
 export default {
   namespace: 'layout',
   state: {
-    menuMode: 'inline'
+    menuMode: 'inline',
+    pathname: '/main/example'
   },
   reducers: {
     changeMenuMode(state, {menuMode}) {
