@@ -4,7 +4,7 @@ import 'intl';
 import { addLocaleData } from 'react-intl';
 import './index.less';
 import 'antd-mobile/dist/antd-mobile.less';
-import { browserHistory } from 'dva/router';
+import createHistory from 'history/createBrowserHistory';
 import createLoading from 'dva-loading';
 import * as Ii8n from './i18n';
 import {CHINESE, ENGLISH} from './utils/constant';
@@ -14,7 +14,7 @@ addLocaleData(Ii8n[ENGLISH]);
 
 // 1. Initialize
 const app = dva({
-  history: browserHistory
+  history: createHistory()
 });
 
 // 2. Plugins

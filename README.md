@@ -52,3 +52,70 @@ npm run dist
   }
 ```
 注意：打包出来的html文件，将引入路径修改为相对路径。开发时，应该为/,否则在browserHistory下二级目录刷新异常。
+
+# Upgrade to dva 2.X
+1. update package.json
+
+    ```
+    "dva": "2.0.3",
+    "dva-loading": "^1.0.2",
+    
+    "roadhog": "^1.2.2",
+    "webpack": "^3.6.0"
+    ```
+    执行 `npm update`
+2. update history
+    
+    ```
+    import createHistory from 'history/createBrowserHistory';
+    
+    const app = dva({
+      history: createHistory(),
+      onError: (e) => {
+        window.console.error(e);
+        message.error(e.message);
+      }
+    });
+    ```
+3. upgrade router@2 to router@4
+    ```
+    import React from 'react';
+    import {Router, Route, Switch} from 'dva/router';
+    import dynamic from 'dva/dynamic';
+    
+    export default ({history, app}) => {
+    
+      const ExampleIndex = dynamic({
+        app,
+        component: () => import('./routes/Example'),
+        models: () => [import('./models/layout')]
+      });
+    
+      return <Router history={history}>
+          <Switch>
+            <Route exact path={'/'} component={dynamic({app, component: () => import('./routes/IndexPage')})}/>
+            <Route exact path={'/main/example'}
+                   component={ExampleIndex}/>
+          </Switch>
+      </Router>;
+    };
+    ```
+    如果是公共model，可以放到index.js中。
+4. 将原来的Layout 修改如下：
+    ```
+    import React from 'react';
+    import { connect } from 'dva';
+    import Layout from '../components/layout/Main';
+    import {injectIntl} from 'react-intl';
+    import App from './App';
+    
+    const Main = injectIntl(({routes, dispatch, children, layout, intl}) => {
+      return (
+        <Layout routes={routes} dispatch={dispatch} layout={layout} intl={intl}>
+          {children}
+        </Layout>
+      );
+    });
+    
+    export default connect(state => state)(props => <App><Main {...props}/></App>);
+    ```

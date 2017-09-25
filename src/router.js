@@ -1,37 +1,24 @@
 import React from 'react';
-import {Router} from 'dva/router';
-import IndexPage from './routes/IndexPage';
-import Layout from './routes/Layout';
-import Example from './components/Example';
-import App from './routes/App.js';
-import {PATH_HOME} from './utils/constant';
+import {Router, Route, Switch} from 'dva/router';
+import dynamic from 'dva/dynamic';
 
-export default ({history}) => {
-  const routes = [
-    {
-      path: PATH_HOME,
-      component: App,
-      indexRoute: {component: IndexPage},
-      childRoutes: [
-        {
-          path: 'index',
-          component: IndexPage
-        },
-        {
-          path: 'main',
-          breadcrumbName: 'layout.index',
-          component: Layout,
-          childRoutes: [
-            {
-              path: 'example',
-              component: Example,
-              breadcrumbName: 'example.test'
-            }
-          ]
-        }
-      ]
-    },
-  ];
+export default ({history, app}) => {
 
-  return <Router history={history} routes={routes}/>;
+  const ExampleIndex = dynamic({
+    app,
+    component: () => import('./routes/Example')
+  });
+  const TestIndex = dynamic({
+    app,
+    component: () => import('./routes/Test')
+  });
+
+  return <Router history={history}>
+      <Switch>
+        <Route exact path={'/'} component={dynamic({app, component: () => import('./routes/IndexPage')})}/>
+        <Route exact path={'/main/example'}
+               component={ExampleIndex}/>
+        <Route exact path={'/main/test'} component={TestIndex}/>
+      </Switch>
+  </Router>;
 };

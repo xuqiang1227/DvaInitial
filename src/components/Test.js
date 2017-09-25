@@ -5,7 +5,7 @@ const Example = ({dispatch}) => {
   return (
     <div>
       <FormattedMessage id="example.test"/>
-      <div>Dva 2.X</div>
+      <div>test</div>
       {dispatch && <div><br/>This page can get dispatch...</div>}
     </div>
   );

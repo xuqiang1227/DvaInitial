@@ -53,5 +53,15 @@ export default {
   svgSpriteLoaderDirs: svgSpriteDirs,
   "theme": "./src/styles/theme.js",
   publicPath,
-  define: {publicPath}
+  define: {publicPath},
+  xdllPlugin: {
+    "exclude": [
+      "babel-runtime"
+    ],
+    "include": [
+      "dva/router",
+      "dva/saga",
+      "dva/fetch"
+    ]
+  }
 }
