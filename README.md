@@ -78,6 +78,8 @@ npm run dist
     });
     
 ### 3. upgrade router@2 to router@4
+
+   [Reat-Router@4](https://reacttraining.com/react-router/web/guides/philosophy)
     
     import React from 'react';
     import {Router, Route, Switch} from 'dva/router';
