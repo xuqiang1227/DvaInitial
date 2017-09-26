@@ -6,13 +6,13 @@ import {Breadcrumb, Layout} from 'antd';
 const { Header, Content, Sider } = Layout;
 
 
-export default ({children, layout, dispatch, location}) => {
+export default ({children, layout, dispatch}) => {
   const breadcrumbNameMap = {
     '/main': 'Main',
     '/main/example': 'Application1',
     '/main/test': 'Application2'
   };
-  const pathSnippets = location.pathname.split('/').filter(i => i);
+  const pathSnippets = layout.pathname.split('/').filter(i => i);
   const breadcrumbItems = pathSnippets.map((_, index) => {
     const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
     return (

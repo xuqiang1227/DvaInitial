@@ -1,7 +1,7 @@
 ## DvaInitial
 Dva初始化，包括layout 以及国际化
 ## 内容介绍
-- React + Dva + roadHog
+- React + Dva + Roadhog
 - antd layout
 - react-intl
 ## 使用方式
@@ -53,11 +53,11 @@ npm run dist
 ```
 注意：打包出来的html文件，将引入路径修改为相对路径。开发时，应该为/,否则在browserHistory下二级目录刷新异常。
 
-# Upgrade to dva 2.X
+### Upgrade to dva 2.X
 1. update package.json
 
     ```
-    "dva": "2.0.3",
+    "dva": "^2.0.3",
     "dva-loading": "^1.0.2",
     
     "roadhog": "^1.2.2",
@@ -119,4 +119,9 @@ npm run dist
     
     export default connect(state => state)(props => <App><Main {...props}/></App>);
     ```
+    修改这一步的目的是，将Layout组件和IntlProvide组件从Route中抽取出来，避免由Layout包裹的路由出现无法跳转的问题。
+    也可以通过router@4提供的其他方式实现wrap.
 5. Breadcrumb修改
+
+    router@4不再提供routes参数，因此Breadcrumb需要自己手动实现。
+    参考[Breadcrumb](https://ant.design/components/breadcrumb-cn/#components-breadcrumb-demo-router-4)

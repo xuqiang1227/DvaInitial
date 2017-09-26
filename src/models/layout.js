@@ -6,17 +6,16 @@ export default {
     pathname: '/main/example'
   },
   reducers: {
-    changeMenuMode(state, {menuMode}) {
-      return Object.assign({}, state, {menuMode});
+    setState(state, {payload}) {
+      return Object.assign({}, state, {...payload});
     }
   },
   effects: {},
   subscriptions: {
-    // set({dispatch, history}) {
-    //   return history.listen(() => {
-    //     if(pathname === '/') {
-    //     }
-    //   })
-    // }
+    set({dispatch, history}) {
+      return history.listen(({pathname}) => {
+        dispatch({type: 'setState', payload: {pathname}});
+      })
+    }
   }
 };
