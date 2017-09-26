@@ -11,7 +11,6 @@ import App from './App';
 const IndexPage = ({form, dispatch}) => {
   const {getFieldDecorator, validateFields} = form;
   return (
-    <App>
       <div className={styles.normal}>
         <div className={styles.login}>
           <div className={styles.title}>Dva Initial</div>
@@ -56,7 +55,6 @@ const IndexPage = ({form, dispatch}) => {
           </div>
         </div>
       </div>
-    </App>
   );
 };
 

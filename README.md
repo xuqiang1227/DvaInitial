@@ -82,50 +82,40 @@ npm run dist
     import React from 'react';
     import {Router, Route, Switch} from 'dva/router';
     import dynamic from 'dva/dynamic';
+    import App from './routes/App';
+    import Layout from './routes/Layout';
     
     export default ({history, app}) => {
-    
       const ExampleIndex = dynamic({
         app,
-        component: () => import('./routes/Example'),
-        models: () => [import('./models/layout')]
+        component: () => import('./routes/Example')
       });
-    
-      return <Router history={history}>
-          <Switch>
-            <Route exact path={'/'} component={dynamic({app, component: () => import('./routes/IndexPage')})}/>
-            <Route exact path={'/main/example'}
-                   component={ExampleIndex}/>
-          </Switch>
-      </Router>;
-    };
+      const TestIndex = dynamic({
+        app,
+        component: () => import('./routes/Test')
+      });
+      return (
+        <App>
+          <Router history={history}>
+            <Switch>
+              <Route exact path={'/'} component={dynamic({app, component: () => import('./routes/IndexPage')})}/>
+              <Layout>
+                <Route exact path={'/main/example'}
+                       render={() => <ExampleIndex breadcrumbName={'layout.index'}/>}/>
+                <Route exact path={'/main/test'} component={TestIndex}/>
+              </Layout>
+            </Switch>
+          </Router>
+        </App>
+      );
+    }
     
     如果是公共model，可以放到index.js中。
-### 4. 将原来的Layout 修改如下：
     
-    import React from 'react';
-    import { connect } from 'dva';
-    import Layout from '../components/layout/Main';
-    import {injectIntl} from 'react-intl';
-    import App from './App';
+   [migration](https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/migrating.md)
     
-    const Main = injectIntl(({routes, dispatch, children, layout, intl}) => {
-      return (
-        <Layout routes={routes} dispatch={dispatch} layout={layout} intl={intl}>
-          {children}
-        </Layout>
-      );
-    });
-    
-    export default connect(state => state)(props => <App><Main {...props}/></App>);
-    
-    修改这一步的目的是，将Layout组件和IntlProvide组件从Route中抽取出来，避免由Layout包裹的路由出现无法跳转的问题。
-    也可以通过router@4提供的其他方式实现wrap.
-### 5. 每个routerIndex用layout 包裹起来
+### 4. Breadcrumb修改
 
-    export default () => <Layout><Example/></Layout>;
-    
-### 6. Breadcrumb修改
-
-    router@4不再提供routes参数，因此Breadcrumb需要自己手动实现。
-    参考[Breadcrumb](https://ant.design/components/breadcrumb-cn/#components-breadcrumb-demo-router-4)
+   router@4不再提供routes参数，因此Breadcrumb需要自己手动实现。
+  
+   参考[Breadcrumb](https://ant.design/components/breadcrumb-cn/#components-breadcrumb-demo-router-4)

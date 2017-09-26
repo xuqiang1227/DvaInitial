@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'dva';
 import Layout from '../components/layout/Main';
 import {injectIntl} from 'react-intl';
-import App from './App';
 
 const Main = injectIntl((props) => {
   const {dispatch, children, layout, intl} = props;
@@ -13,4 +12,4 @@ const Main = injectIntl((props) => {
   );
 });
 
-export default connect(state => state)(props => <App><Main {...props}/></App>);
+export default connect(state => state)(props => <Main {...props}/>);
