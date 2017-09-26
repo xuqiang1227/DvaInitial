@@ -53,8 +53,8 @@ npm run dist
 ```
 注意：打包出来的html文件，将引入路径修改为相对路径。开发时，应该为/,否则在browserHistory下二级目录刷新异常。
 
-### Upgrade to dva 2.X
-1. update package.json
+# Upgrade to dva 2.X
+### 1. update package.json
 
     ```
     "dva": "^2.0.3",
@@ -64,7 +64,7 @@ npm run dist
     "webpack": "^3.6.0"
     ```
     执行 `npm update`
-2. update history
+### 2. update history
     
     ```
     import createHistory from 'history/createBrowserHistory';
@@ -77,7 +77,7 @@ npm run dist
       }
     });
     ```
-3. upgrade router@2 to router@4
+### 3. upgrade router@2 to router@4
     ```
     import React from 'react';
     import {Router, Route, Switch} from 'dva/router';
@@ -101,7 +101,7 @@ npm run dist
     };
     ```
     如果是公共model，可以放到index.js中。
-4. 将原来的Layout 修改如下：
+### 4. 将原来的Layout 修改如下：
     ```
     import React from 'react';
     import { connect } from 'dva';
@@ -121,7 +121,7 @@ npm run dist
     ```
     修改这一步的目的是，将Layout组件和IntlProvide组件从Route中抽取出来，避免由Layout包裹的路由出现无法跳转的问题。
     也可以通过router@4提供的其他方式实现wrap.
-5. Breadcrumb修改
+### 5. Breadcrumb修改
 
     router@4不再提供routes参数，因此Breadcrumb需要自己手动实现。
     参考[Breadcrumb](https://ant.design/components/breadcrumb-cn/#components-breadcrumb-demo-router-4)
