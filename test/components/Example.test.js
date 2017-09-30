@@ -3,7 +3,6 @@ import {connect} from 'dva';
 import {Form, Input, Button, Icon} from 'antd';
 
 import {routerRedux} from 'dva/router';
-import {APP_PATH} from '../../src/utils/constant';
 
 import { shallow, render, configure } from 'enzyme';
 import chai from 'chai';
@@ -12,7 +11,6 @@ const {expect} = chai;
 import Adapter from 'enzyme-adapter-react-15';
 configure({ adapter: new Adapter() });
 
-import {IndexPage} from '../../src/routes/IndexPage';
 import Example from '../../src/components/Example';
 import {IntlProvider} from 'react-intl';
 
@@ -40,13 +38,13 @@ describe('routers/IndexPage', () => {
     expect(_wrapper.is('div')).to.equal(true)
   })
 
-  // it('Should has two children.', () => {
-  //   expect(_wrapper.children()).to.have.length(2);
-  // })
-  //
-  // it('Each element of form should be <FormGroup>.', () => {
+  it('Should has two children.', () => {
+    expect(_wrapper.children()).to.have.length(2);
+  })
+
+  // it('Each element of form should be <div>.', () => {
   //   _wrapper.children().forEach(function (node) {
-  //     expect(node.is(FormGroup)).to.equal(true);
+  //     expect(node.is(div)).to.equal(true);
   //   })
   // })
   //
