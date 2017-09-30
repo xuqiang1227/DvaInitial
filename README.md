@@ -121,3 +121,6 @@ npm run dist
    router@4不再提供routes参数，因此Breadcrumb需要自己手动实现。
   
    参考[Breadcrumb](https://ant.design/components/breadcrumb-cn/#components-breadcrumb-demo-router-4)
+   
+## Test 
+ [babel for mocha](http://jamesknelson.com/testing-in-es6-with-mocha-and-babel-6/)

@@ -1,11 +1,12 @@
 {
   "private": true,
+  "version": "3.0.0",
   "scripts": {
     "clean": "rimraf dist/*",
     "start": "roadhog server",
     "copy": "copyfiles -f ./node_modules/es5-shim/es5-shim.min.js ./node_modules/es5-shim/es5-sham.min.js ./node_modules/html5shiv/dist/html5shiv.min.js ./node_modules/matchmedia-polyfill/matchMedia.js ./dist/js",
     "copyht": "copyfiles -f .htaccess ./dist",
-    "build": "roadhog build",
+    "build": "npm run clean && roadhog build",
     "dist": "npm run clean-temp && npm run build-app && npm run backup-dist && npm run build-web && npm run cp-dist && npm run copy && npm run restore-configuration && npm run clean-temp",
     "lint": "eslint --ext .js src test",
     "cp-app-configuration": "copyfiles -f ./build_template/app.roadhogrc.js ./",
@@ -17,7 +18,8 @@
     "backup-dist": "copyfiles -f ./dist/* ./temp",
     "cp-dist": "copyfiles -f ./temp/* ./dist",
     "restore-configuration": "copyfiles -f ./build_template/.roadhogrc.js ./",
-    "clean-temp": "rimraf temp"
+    "clean-temp": "rimraf temp",
+    "test": "mocha --require ignore-styles --compilers js:babel-core/register --recursive"
   },
   "engines": {
     "install-node": "6.9.2"
@@ -35,19 +37,26 @@
     "intl": "^1.2.5",
     "moment": "^2.18.1",
     "query-string": "^5.0.0",
-    "react": "15.4.0",
-    "react-dom": "15.4.0",
+    "react": "15.6.1",
+    "react-dom": "15.6.1",
     "react-intl": "^2.3.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-plugin-dva-hmr": "^0.3.2",
     "babel-plugin-import": "^1.1.1",
     "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "cash-cp": "^0.2.0",
     "cash-mv": "^0.2.0",
+    "chai": "^4.1.2",
     "copyfiles": "^1.2.0",
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-15": "^1.0.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
@@ -55,9 +64,14 @@
     "eslint-plugin-react": "^6.8.0",
     "expect": "^1.20.2",
     "husky": "^0.12.0",
+    "ignore-styles": "^5.0.1",
+    "mocha": "^3.5.3",
     "postcss-pxtorem": "^4.0.1",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.0.0",
     "redbox-react": "1.3.6",
     "roadhog": "^1.2.2",
+    "sinon": "^4.0.0",
     "svg-sprite-loader": "0.3.1",
     "webpack": "^3.6.0"
   }

@@ -6,9 +6,8 @@ import {Form, Input, Button, Icon} from 'antd';
 const FormItem = Form.Item;
 import {routerRedux} from 'dva/router';
 import {APP_PATH} from '../utils/constant';
-import App from './App';
 
-const IndexPage = ({form, dispatch}) => {
+export const IndexPage = ({form, dispatch}) => {
   const {getFieldDecorator, validateFields} = form;
   return (
       <div className={styles.normal}>
