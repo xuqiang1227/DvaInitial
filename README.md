@@ -103,7 +103,7 @@ npm run dist
               <Route exact path={'/'} component={dynamic({app, component: () => import('./routes/IndexPage')})}/>
               <Layout>
                 <Route exact path={'/main/example'}
-                       render={() => <ExampleIndex breadcrumbName={'layout.index'}/>}/>
+                       render={() => <ExampleIndex/>}/>
                 <Route exact path={'/main/test'} component={TestIndex}/>
               </Layout>
             </Switch>
