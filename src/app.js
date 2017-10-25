@@ -5,11 +5,11 @@ import { addLocaleData } from 'react-intl';
 import './index.less';
 import createHistory from 'history/createBrowserHistory';
 import createLoading from 'dva-loading';
-import * as Ii8n from './i18n';
+import * as I18n from './i18n';
 import {CHINESE, ENGLISH} from './utils/constant';
 
-addLocaleData(Ii8n[CHINESE]);
-addLocaleData(Ii8n[ENGLISH]);
+addLocaleData(I18n[CHINESE]);
+addLocaleData(I18n[ENGLISH]);
 
 // 1. Initialize
 const app = dva({
