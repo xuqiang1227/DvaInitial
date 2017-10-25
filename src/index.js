@@ -6,7 +6,7 @@ import 'intl';
 import { addLocaleData } from 'react-intl';
 import './index.less';
 import createHistory from 'history/createBrowserHistory';
-import message from 'antd/lib/message';
+import {message} from 'antd';
 import createLoading from 'dva-loading';
 import * as Ii8n from './i18n';
 import {CHINESE, ENGLISH} from './utils/constant';

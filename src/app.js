@@ -3,7 +3,6 @@ require('es6-promise').polyfill();
 import 'intl';
 import { addLocaleData } from 'react-intl';
 import './index.less';
-import 'antd-mobile/dist/antd-mobile.less';
 import createHistory from 'history/createBrowserHistory';
 import createLoading from 'dva-loading';
 import * as Ii8n from './i18n';
