@@ -28,25 +28,25 @@ npm run dist
 ```(javascript)
   server {
     listen 8009;
-    erver_name localhost;    
-	  location /assets {
+    erver_name localhost;
+    location /assets {
       alias html/visitor;
       #root  html/visitor;
       index  index.html index.htm;
-		  try_files $uri $uri/ /assets/index.html;
+      try_files $uri $uri/ /assets/index.html;
     }
-    ocation /assets/main {
-		  alias html/visitor;
+    location /assets/main {
+      alias html/visitor;
       #root   html/visitor;
       index  index.html index.htm;
-		  try_files $uri $uri /assets/index.html;
+      try_files $uri $uri /assets/index.html;
     }
     location /api/ {
       proxy_pass   http://192.168.0.19:8202/api/;
     }
     location /assets/virsical {    
       alias html/visitor;
-		  index  visitApp.html;
+      index  visitApp.html;
       try_files $uri $uri/ /assets/visitApp.html;
     }
   }
@@ -62,8 +62,7 @@ npm run dist
     
     "roadhog": "^1.2.2",
     "webpack": "^3.6.0"
-    
-    执行 `npm update`
+执行 `npm update`
 ### 2. update history
     
     
@@ -112,7 +111,7 @@ npm run dist
       );
     }
     
-    如果是公共model，可以放到index.js中。
+如果是公共model，可以放到index.js中。
     
    [migration](https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/guides/migrating.md)
     
