@@ -1,19 +1,20 @@
 import fetch from 'dva/fetch';
 import {isIE} from './download';
 
+//resole no response
 const parseJSON = response => {
-  return response.json();
-};
-
-const checkStatus = response => {
-  if (response.status >= 200 && response.status < 300) {
-    return response;
+  switch (response.status) {
+    case 201:
+      return {message: 'Created', status: 201};
+      break;
+    case 204:
+      return {message: 'Successfully', status: 204};
+      break;
+    default:
+      return response.json();
   }
-
-  const error = new Error(response.statusText);
-  error.response = response;
-  throw error;
 };
+
 
 /**
  * Requests a URL, returning a promise.
@@ -26,10 +27,10 @@ export default (url, options) => {
   return new Promise(resolve => {
     resolve(myRequest(url, options));
   }).then(data => {
-    if (data.result === 1) {
-      return data.data || data.msg;
+    if (data.status >= 200 && data.status < 300 || !data.status) {
+      return data;
     } else {
-      throw new Error(data.msg);
+      throw new Error(data.message);
     }
   });//这里不需要再catch了。
 };
@@ -43,7 +44,6 @@ export const myRequest = (url, options) => {
     }
   }
   return fetch(url, options)
-    .then(checkStatus)
     .then(parseJSON)
     .then(data => data)
     .catch(err => {
