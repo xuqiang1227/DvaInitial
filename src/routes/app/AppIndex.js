@@ -4,7 +4,6 @@
 import React from 'react';
 import { connect } from 'dva';
 import {injectIntl, defineMessages} from 'react-intl';
-import App from '../App';
 
 const Index = injectIntl(({intl}) => {
   const messages = defineMessages({
@@ -16,4 +15,4 @@ const Index = injectIntl(({intl}) => {
  return <div>{intl.formatMessage(messages['example.test.2'])}</div>;
 });
 
-export default connect(state => state)(props => <App><Index {...props}/></App>)
+export default connect(state => state)(props => <Index {...props}/>)

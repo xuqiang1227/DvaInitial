@@ -1,7 +1,7 @@
 import React from 'react';
 import {Router, Route, Switch} from 'dva/router';
 import dynamic from 'dva/dynamic';
-import App from './routes/App';
+import App from './routes/PCContainer';
 import Layout from './routes/Layout';
 
 export default ({history, app}) => {
