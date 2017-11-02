@@ -3,7 +3,8 @@ export default {
   namespace: 'layout',
   state: {
     menuMode: 'inline',
-    pathname: '/main/example'
+    pathname: '/main/example',
+    loading: true
   },
   reducers: {
     setState(state, {payload}) {

@@ -6,9 +6,9 @@ import enUS from 'antd/lib/locale-provider/en_US';
 import {ENGLISH} from '../utils/constant';
 import {Spin} from 'antd'
 
-const App = ({children, i18n, loading}) => {
+const App = ({children, i18n, loading, layout}) => {
   return (
-    <Spin tip="loading..." spinning={loading.global} size="large">
+    <Spin tip="loading..." spinning={loading.global && layout.loading} size="large">
       <div style={{height: '100vh'}}>
         <LocaleProvider locale={i18n.locale === ENGLISH ? enUS : null}>
           <IntlProvider locale={i18n.locale} messages={i18n.messages}>{children}</IntlProvider>

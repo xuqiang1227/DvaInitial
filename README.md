@@ -9,6 +9,12 @@ Dva初始化，包括layout 以及国际化
 npm i
 npm start
 ````
+### Loading的使用
+  默认情况会在每一次effects中添加loading，如果在某次effect时，不需要loading时，如下操作：
+  ```
+    dispatch({type: 'layout/setState', payload: {loading: false}});
+    dispatch(/* your effects */).then(() => dispatch({type: 'layout/setState', payload: {loading: true}}));
+  ```
 ## 移动设备高清开发
 需要在roadhog中打开 extraPostCSSPlugins
 ## 打包方式
