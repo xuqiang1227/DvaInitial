@@ -129,3 +129,6 @@ npm run dist
    
 ## Test 
  [babel for mocha](http://jamesknelson.com/testing-in-es6-with-mocha-and-babel-6/)
+ 
+## 兼容性
+  现代浏览器及 IE10, IE11。
