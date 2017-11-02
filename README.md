@@ -129,6 +129,7 @@ npm run dist
    
 ## Test 
  [babel for mocha](http://jamesknelson.com/testing-in-es6-with-mocha-and-babel-6/)
+ [Ant design Pro test](https://pro.ant.design/docs/ui-test)
  
 ## 兼容性
   现代浏览器及 IE10, IE11。
