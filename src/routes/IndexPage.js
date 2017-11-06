@@ -34,7 +34,7 @@ export const IndexPage = ({form, dispatch}) => {
                     {getFieldDecorator('userName', {
                       rules: [{required: true, message: 'Please input your username!'}],
                     })(
-                      <Input prefix={<Icon type="user" style={{fontSize: 13}}/>} placeholder="Username"/>
+                      <Input prefix={<Icon type="user" style={{fontSize: 13}}/>} autoFocus placeholder="Username"/>
                     )}
                   </FormItem>
                   <FormItem className={styles['form-item']}>
