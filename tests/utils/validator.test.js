@@ -2,6 +2,7 @@ import 'babel-polyfill';
 import {checkUsername} from '../../src/utils/validator';
 import chai from 'chai';
 const {expect} = chai;
+
 describe('helpers/validator', () => {
   describe('Function: checkUsername', () => {
     it('Should not return error while input foobar.', () => {

@@ -19,60 +19,119 @@
     "cp-dist": "copyfiles -f ./temp/* ./dist",
     "restore-configuration": "copyfiles -f ./build_template/.roadhogrc.js ./",
     "clean-temp": "rimraf temp",
-    "test": "mocha --require ignore-styles --compilers js:babel-core/register --recursive"
+    "test": "jest",
+    "test:all": "node ./tests/run-tests.js"
   },
   "engines": {
     "install-node": "6.9.2"
   },
   "dependencies": {
-    "antd": "^2.13.3",
-    "antd-mobile": "^1.6.11",
-    "babel-polyfill": "^6.23.0",
-    "babel-runtime": "^6.9.2",
+    "antd": "^3.0.0",
+    "antd-mobile": "^2.1.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-runtime": "^6.26.0",
     "classnames": "^2.2.5",
-    "dva": "2.0.3",
-    "dva-loading": "^1.0.2",
-    "es6-promise": "^4.1.0",
+    "dva": "^2.1.0",
+    "dva-loading": "^1.0.4",
+    "es6-promise": "^4.1.1",
     "history": "^4.7.2",
     "intl": "^1.2.5",
-    "moment": "^2.18.1",
-    "query-string": "^5.0.0",
-    "react": "15.6.1",
-    "react-dom": "15.6.1",
-    "react-intl": "^2.3.0"
+    "moment": "^2.19.3",
+    "query-string": "^5.0.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-intl": "^2.4.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-eslint": "^7.2.3",
-    "babel-plugin-dva-hmr": "^0.3.2",
-    "babel-plugin-import": "^1.1.1",
-    "babel-plugin-lodash": "^3.2.11",
-    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-eslint": "^8.0.3",
+    "babel-jest": "^21.0.0",
+    "babel-plugin-dva-hmr": "^0.4.0",
+    "babel-plugin-import": "^1.6.2",
+    "babel-plugin-lodash": "^3.3.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "babel-runtime": "^6.26.0",
     "cash-cp": "^0.2.0",
     "cash-mv": "^0.2.0",
     "chai": "^4.1.2",
     "copyfiles": "^1.2.0",
-    "enzyme": "^3.0.0",
-    "enzyme-adapter-react-15": "^1.0.0",
+    "cross-port-killer": "^1.0.1",
+    "enzyme": "3.1.0",
+    "enzyme-adapter-react-15": "^1.0.5",
+    "enzyme-adapter-react-16": "^1.1.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-babel": "^4.0.0",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.0",
+    "eslint-plugin-markdown": "^1.0.0-beta.6",
+    "eslint-plugin-react": "^7.0.1",
     "expect": "^1.20.2",
-    "husky": "^0.12.0",
+    "gh-pages": "^1.0.0",
+    "husky": "^0.14.3",
     "ignore-styles": "^5.0.1",
-    "mocha": "^3.5.3",
+    "jest": "^21.2.1",
+    "lint-staged": "^4.3.0",
+    "mockjs": "^1.0.1-beta3",
     "postcss-pxtorem": "^4.0.1",
     "react-addons-test-utils": "^15.6.2",
-    "react-test-renderer": "^16.0.0",
-    "redbox-react": "1.3.6",
-    "roadhog": "^1.2.2",
+    "react-container-query": "^0.9.1",
+    "react-test-renderer": "^16.2.0",
+    "redbox-react": "^1.5.0",
+    "roadhog": "^1.3.1",
+    "roadhog-api-doc": "^0.3.3",
     "sinon": "^4.0.0",
-    "svg-sprite-loader": "0.3.1",
-    "webpack": "^3.6.0"
-  }
+    "stylelint": "^8.1.0",
+    "stylelint-config-standard": "^17.0.0",
+    "svg-sprite-loader": "^3.4.1",
+    "webpack": "^3.10.0"
+  },
+  "optionalDependencies": {
+    "nightmare": "^2.10.0"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ],
+    "plugins": [
+      "transform-decorators-legacy",
+      "transform-class-properties"
+    ]
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/tests/setupTests.js"
+    ],
+    "testMatch": [
+      "**/?(*.)(spec|test|e2e).js?(x)"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/tests/jasmine.js",
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/tests/styleMock.js"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx}": "lint-staged:js",
+    "**/*.less": "stylelint --syntax less",
+    "*.{js,jsx,less,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+  ]
 }

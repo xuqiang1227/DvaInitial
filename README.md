@@ -128,7 +128,34 @@ npm run dist
    参考[Breadcrumb](https://ant.design/components/breadcrumb-cn/#components-breadcrumb-demo-router-4)
    
 ## Test 
+
+   执行所有的测试
+  
+   `npm run test:all  // 执行所有测试`
+   
+   执行单个文件的测试
+   
+   `npm test test\\components\\Example.test.js      //windows ` 
+   
+   `npm test test/components/Example.test.js        //mac ` 
+   
+   Got it to work with jsdom@11.1.0 and enzyme@2.9.1 as follows:
+   
+   ```javascript
+   var jsdom = require('jsdom');
+   const { JSDOM } = jsdom;
+   
+   const { document } = (new JSDOM('')).window;
+   global.document = document;
+   ```
+   
+   提示安装electron失败时：
+   
+   `npm i electron`
+  
  [babel for mocha](http://jamesknelson.com/testing-in-es6-with-mocha-and-babel-6/)
+ 
+ 可参考：
  
  [Ant design Pro test](https://pro.ant.design/docs/ui-test)
  
