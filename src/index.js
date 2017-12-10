@@ -34,6 +34,7 @@ app.use(createLoading());
 // app.model(require('./models/example'));
 app.model(require('./models/i18n'));
 app.model(require('./models/layout'));
+app.model(require('./models/login'));
 
 // 4. Router
 app.router(require('./router'));

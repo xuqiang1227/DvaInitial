@@ -27,12 +27,12 @@ export default {
     ],
     "lodash"
   ],
-  // extraPostCSSPlugins: [
-  //   pxtorem({
-  //     rootValue: 100,
-  //     propWhiteList: [],
-  //   })
-  // ],
+  extraPostCSSPlugins: [
+    pxtorem({
+      rootValue: 100,
+      propWhiteList: [],
+    })
+  ],
   env: {
     development: {
       extraBabelPlugins: ['dva-hmr'],
@@ -53,15 +53,5 @@ export default {
   svgSpriteLoaderDirs: svgSpriteDirs,
   "theme": "./src/styles/theme.js",
   publicPath,
-  define: {publicPath},
-  xdllPlugin: {
-    "exclude": [
-      "babel-runtime"
-    ],
-    "include": [
-      "dva/router",
-      "dva/saga",
-      "dva/fetch"
-    ]
-  }
+  define: {publicPath}
 }

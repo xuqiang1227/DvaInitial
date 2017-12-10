@@ -1,12 +1,12 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
 
-const Example = ({dispatch}) => {
+const Example = ({loginData}) => {
   return (
     <div>
       <FormattedMessage id="example.test"/>
-      <div>test</div>
-      {dispatch && <div><br/>This page can get dispatch...</div>}
+      <div>data from mock</div>
+      {loginData.user.join(', ')}
     </div>
   );
 };

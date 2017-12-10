@@ -4,8 +4,6 @@ import * as styles from './IndexPage.less';
 import {Form, Input, Button, Icon} from 'antd';
 
 const FormItem = Form.Item;
-import {routerRedux} from 'dva/router';
-import {APP_PATH} from '../utils/constant';
 
 export const IndexPage = ({form, dispatch}) => {
   const {getFieldDecorator, validateFields} = form;
@@ -24,17 +22,19 @@ export const IndexPage = ({form, dispatch}) => {
                     e.preventDefault();
                     validateFields((err, values) => {
                       if (!err) {
-                        window.console.log('Received values of form: ', values);
-                        dispatch(routerRedux.push(APP_PATH.example));
+                        dispatch({
+                          type: 'login/accountSubmit',
+                          payload: values,
+                        });
                       }
                     });
                   }
                 }>
                   <FormItem className={styles['form-item']}>
-                    {getFieldDecorator('userName', {
+                    {getFieldDecorator('username', {
                       rules: [{required: true, message: 'Please input your username!'}],
                     })(
-                      <Input prefix={<Icon type="user" style={{fontSize: 13}}/>} autoFocus placeholder="Username"/>
+                      <Input prefix={<Icon type="user" style={{fontSize: 13}}/>} autoFocus placeholder="admin"/>
                     )}
                   </FormItem>
                   <FormItem className={styles['form-item']}>
@@ -42,7 +42,7 @@ export const IndexPage = ({form, dispatch}) => {
                       rules: [{required: true, message: 'Please input your Password!'}],
                     })(
                       <Input prefix={<Icon type="lock" style={{fontSize: 13}}/>} type="password"
-                             placeholder="Password"/>
+                             placeholder="888888"/>
                     )}
                   </FormItem>
                   <Button type="primary" htmlType="submit" className={styles['form-btn']}>
