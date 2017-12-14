@@ -28,17 +28,9 @@ export default {
     },
     production: {}
   },
-  proxy: {
-    "/api": {
-      "target": "http://localhost:8080/"
-    },
-    "/app" :{
-      "target": "http://localhost:8000/",
-      "pathRewrite": { "^/app.*$" : "/app.html" }
-    }
-  },
   multipage: true,
   "theme": "./src/styles/theme.js",
   publicPath,
+  hash:true,
   define: {publicPath}
 }

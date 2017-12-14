@@ -37,15 +37,6 @@ export default {
     },
     production: {}
   },
-  proxy: {
-    "/api": {
-      "target": "http://192.168.0.170:8080/"
-    },
-    "/app" :{
-      "target": "http://localhost:8000/",
-      "pathRewrite": { "^/app.*$" : "/app.html" }
-    }
-  },
   multipage: true,
   "theme": "./src/styles/theme.js",
   publicPath,
