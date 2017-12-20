@@ -49,7 +49,6 @@ export default {
       "pathRewrite": { "^/app.*$" : "/app.html" }
     }
   },
-  multipage: true,
   svgSpriteLoaderDirs: svgSpriteDirs,
   "theme": "./src/styles/theme.js",
   publicPath,
