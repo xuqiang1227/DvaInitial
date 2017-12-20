@@ -28,7 +28,6 @@ export default {
     },
     production: {}
   },
-  multipage: true,
   "theme": "./src/styles/theme.js",
   publicPath,
   hash:true,
