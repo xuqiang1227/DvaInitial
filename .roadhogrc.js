@@ -27,12 +27,12 @@ export default {
     ],
     "lodash"
   ],
-  extraPostCSSPlugins: [
-    pxtorem({
-      rootValue: 100,
-      propWhiteList: [],
-    })
-  ],
+  //extraPostCSSPlugins: [
+  //  pxtorem({
+  //    rootValue: 100,
+  //    propWhiteList: [],
+  //  })
+  // ],
   env: {
     development: {
       extraBabelPlugins: ['dva-hmr'],
