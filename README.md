@@ -1,5 +1,5 @@
 ## DvaInitial
-Dva初始化，包括layout 以及国际化
+> 基于Dva，Antd的一个初始化工程。包含国际化、多页入口、移动设备的高清处理、兼容性等问题。
 ## 内容介绍
 - React + Dva + Roadhog
 - antd layout
