@@ -159,7 +159,7 @@ npm run dist
  
  [Ant design Pro test](https://pro.ant.design/docs/ui-test)
  
- 这里需要注意的是，测试带有import 'antd'的js时，会找不到js 依赖，需要将antd包中node_modules中的依赖包安装到save-dev下。
+ 这里需要注意的是，测试带有import 'antd'的js时，会找不到js依赖，需要删除`package-loc.json`后，重新执行`npm install`。
  
 ## 兼容性
   现代浏览器及 IE10, IE11。

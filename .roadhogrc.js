@@ -41,9 +41,9 @@ export default {
     }
   },
   "proxy": {
-    "/api": {
-      "target": "http://localhost:8080/"
-    },
+    // "/api": {
+    //   "target": "http://localhost:8080/"
+    // },
     "/app" :{
       "target": "http://localhost:8000/",
       "pathRewrite": { "^/app.*$" : "/app.html" }
