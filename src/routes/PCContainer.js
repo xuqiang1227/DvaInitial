@@ -1,10 +1,9 @@
 import React from 'react';
 import {connect} from 'dva';
 import {IntlProvider} from 'react-intl';
-import {LocaleProvider} from 'antd';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
+import {LocaleProvider, Spin} from 'antd';
 import {ENGLISH} from '../utils/constant';
-import {Spin} from 'antd'
 
 const App = ({children, i18n, loading, layout}) => {
   return (

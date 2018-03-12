@@ -163,3 +163,9 @@ npm run dist
  
 ## 兼容性
   现代浏览器及 IE10, IE11。
+  
+## roadhog upgrade to 2.x
+
+  [upgrade site](https://github.com/sorrycc/blog/issues/55)
+  
+  请将`babel-plugin-import`  升级到最新版本，否则会出现无法`import` `antd`组件的问题。
