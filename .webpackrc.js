@@ -1,16 +1,17 @@
 const publicPath = '/';
 
 export default {
-  "entry": "src/index.js",
+  "entry": "src/page/*.js",
   "extraBabelPlugins": [
     [
       "import",
       {
         "libraryName": "antd",
+        // "libraryName": "antd-mobile",
         "libraryDirectory": "es",
         "style": true
       }
-    ]
+    ],
   ],
   "env": {
     "development": {
@@ -30,5 +31,6 @@ export default {
   },
   "theme": "./src/styles/theme.js",
   publicPath,
+  hash: true,
   define: {publicPath}
 }

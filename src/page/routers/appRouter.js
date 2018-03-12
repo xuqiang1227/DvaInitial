@@ -1,8 +1,8 @@
 import React from 'react';
 import {Router, Route} from 'dva/router';
-import AppIndex from './routes/app/AppIndex';
-import {PATH_HOME} from './utils/constant';
-import App from './routes/app/APPContainer';
+import AppIndex from '../../routes/app/AppIndex';
+import {PATH_HOME} from '../../utils/constant';
+import App from '../../routes/app/APPContainer';
 
 const BasePath = `${PATH_HOME}app`;
 

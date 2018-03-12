@@ -1,23 +1,23 @@
 import React from 'react';
 import {Router, Route, Switch} from 'dva/router';
 import dynamic from 'dva/dynamic';
-import App from './routes/PCContainer';
-import Layout from './routes/Layout';
+import App from '../../routes/PCContainer';
+import Layout from '../../routes/Layout';
 
 export default ({history, app}) => {
   const ExampleIndex = dynamic({
     app,
-    component: () => import('./routes/Example')
+    component: () => import('../../routes/Example')
   });
   const TestIndex = dynamic({
     app,
-    component: () => import('./routes/Test')
+    component: () => import('../../routes/Test')
   });
   return (
     <App>
       <Router history={history}>
         <Switch>
-          <Route exact path={'/'} component={dynamic({app, component: () => import('./routes/IndexPage')})}/>
+          <Route exact path={'/'} component={dynamic({app, component: () => import('../../routes/IndexPage')})}/>
           <Layout>
             <Route exact path={'/main/example'}
                    render={() => <ExampleIndex/>}/>
