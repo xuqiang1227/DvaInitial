@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "3.0.0",
+  "version": "2.1.0",
   "scripts": {
     "clean": "rimraf dist/*",
     "start": "roadhog dev",
