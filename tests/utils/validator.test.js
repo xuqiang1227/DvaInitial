@@ -1,4 +1,4 @@
-import 'babel-polyfill';
+import 'raf/polyfill';
 import {checkUsername} from '../../src/utils/validator';
 import chai from 'chai';
 const {expect} = chai;

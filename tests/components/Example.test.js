@@ -1,4 +1,5 @@
 import React from 'react';
+import 'raf/polyfill';
 import { shallow } from 'enzyme';
 import Example from '../../src/components/Example';
 
