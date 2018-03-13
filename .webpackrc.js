@@ -7,11 +7,20 @@ export default {
       "import",
       {
         "libraryName": "antd",
-        // "libraryName": "antd-mobile",
         "libraryDirectory": "es",
         "style": true
       }
     ],
+    [
+      "import",
+      {
+        "libraryName": "antd-mobile",
+        "libraryDirectory": "es",
+        "style": true
+      },
+      "antd-mobile-import"
+    ],
+    "lodash"
   ],
   "env": {
     "development": {
