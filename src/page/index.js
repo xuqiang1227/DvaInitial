@@ -1,6 +1,6 @@
 import dva from 'dva';
 import 'core-js/fn/object/assign';
-import 'babel-polyfill';//endsWith等的兼容性处理。
+import '@babel/polyfill';//endsWith等的兼容性处理。
 import 'intl';
 import { addLocaleData } from 'react-intl';
 import './index.less';
