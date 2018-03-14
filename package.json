@@ -3,11 +3,19 @@
   "version": "2.1.0",
   "scripts": {
     "clean": "rimraf dist/*",
-    "start": "roadhog dev",
     "copy": "copyfiles -f ./node_modules/es5-shim/es5-shim.min.js ./node_modules/es5-shim/es5-sham.min.js ./node_modules/html5shiv/dist/html5shiv.min.js ./node_modules/matchmedia-polyfill/matchMedia.js ./dist/js",
-    "build": "roadhog build",
-    "lint": "eslint --ext .js src test",
-    "test": "jest",
+    "start": "cross-env DISABLE_ESLINT=true roadhog dev",
+    "start:no-proxy": "cross-env NO_PROXY=true DISABLE_ESLINT=true roadhog dev",
+    "build": "cross-env DISABLE_ESLINT=true roadhog build",
+    "site": "roadhog-api-doc static && gh-pages -d dist",
+    "analyze": "cross-env ANALYZE=true roadhog build",
+    "lint:style": "stylelint \"src/**/*.less\" --syntax less",
+    "lint": "eslint --ext .js src mock tests && npm run lint:style",
+    "lint:fix": "eslint --fix --ext .js src mock tests && npm run lint:style",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --ext .js",
+    "test": "roadhog test",
+    "test:component": "roadhog test ./src/components",
     "test:all": "node ./tests/run-tests.js"
   },
   "engines": {
@@ -80,41 +88,11 @@
     "webpack": "^3.10.0"
   },
   "optionalDependencies": {
-    "nightmare": "^2.10.0"
-  },
-  "babel": {
-    "presets": [
-      "env",
-      "react"
-    ],
-    "plugins": [
-      "transform-decorators-legacy",
-      "transform-class-properties"
-    ]
-  },
-  "jest": {
-    "setupFiles": [
-      "<rootDir>/tests/setupTests.js"
-    ],
-    "testMatch": [
-      "**/?(*.)(spec|test|e2e).js?(x)"
-    ],
-    "setupTestFrameworkScriptFile": "<rootDir>/tests/jasmine.js",
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
-    "moduleNameMapper": {
-      "\\.(css|less)$": "<rootDir>/tests/styleMock.js"
-    }
+    "puppeteer": "^1.1.1"
   },
   "lint-staged": {
     "**/*.{js,jsx}": "lint-staged:js",
-    "**/*.less": "stylelint --syntax less",
-    "*.{js,jsx,less,json}": [
-      "prettier --write",
-      "git add"
-    ]
+    "**/*.less": "stylelint --syntax less"
   },
   "browserslist": [
     "> 1%",
