@@ -22,6 +22,7 @@ addLocaleData(I18n[ENGLISH]);
 const app = dva({
   history: createHistory(),
   onError: (e) => {
+    message.destroy();
     window.console.error(e);
     message.error(e.message);
   }
