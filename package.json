@@ -4,6 +4,7 @@
   "scripts": {
     "clean": "rimraf dist/*",
     "copy": "copyfiles -f ./node_modules/es5-shim/es5-shim.min.js ./node_modules/es5-shim/es5-sham.min.js ./node_modules/html5shiv/dist/html5shiv.min.js ./node_modules/matchmedia-polyfill/matchMedia.js ./dist/js",
+    "precommit": "npm run lint-staged",
     "start": "cross-env DISABLE_ESLINT=true roadhog dev",
     "start:no-proxy": "cross-env NO_PROXY=true DISABLE_ESLINT=true roadhog dev",
     "build": "cross-env DISABLE_ESLINT=true roadhog build",
