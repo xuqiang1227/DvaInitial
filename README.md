@@ -135,9 +135,9 @@ npm run dist
    
    执行单个文件的测试
    
-   `npm test test\\components\\Example.test.js      //windows ` 
+   `npm test test\\components\\Example.test1.js      //windows ` 
    
-   `npm test test/components/Example.test.js        //mac ` 
+   `npm test test/components/Example.test1.js        //mac ` 
    
    Got it to work with jsdom@11.1.0 and enzyme@2.9.1 as follows:
    
