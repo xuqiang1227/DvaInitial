@@ -171,3 +171,7 @@ npm run dist
   请将`babel-plugin-import`  升级到最新版本，否则会出现无法`import` `antd`组件的问题。
   
   升级后的打包命令为：`npm run build`
+  
+## Auth Router
+
+  请在`PrivateRouter.js`中自行实现认证。

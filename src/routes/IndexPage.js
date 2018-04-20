@@ -5,7 +5,7 @@ import {Form, Input, Button, Icon} from 'antd';
 
 const FormItem = Form.Item;
 
-export const IndexPage = ({form, dispatch}) => {
+export const IndexPage = ({form, dispatch, location}) => {
   const {getFieldDecorator, validateFields} = form;
   return (
       <div className={styles.normal}>
@@ -25,6 +25,7 @@ export const IndexPage = ({form, dispatch}) => {
                         dispatch({
                           type: 'login/accountSubmit',
                           payload: values,
+                          from: location.state && location.state.from
                         });
                       }
                     });

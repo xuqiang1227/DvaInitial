@@ -3,6 +3,7 @@ import {Router, Route, Switch} from 'dva/router';
 import dynamic from 'dva/dynamic';
 import App from '../../routes/PCContainer';
 import Layout from '../../routes/Layout';
+import {PrivateRoute} from '../../routes/PrivateRouter';
 
 export default ({history, app}) => {
   const ExampleIndex = dynamic({
@@ -19,9 +20,9 @@ export default ({history, app}) => {
         <Switch>
           <Route exact path={'/'} component={dynamic({app, component: () => import('../../routes/IndexPage')})}/>
           <Layout>
-            <Route exact path={'/main/example'}
-                   render={() => <ExampleIndex/>}/>
-            <Route exact path={'/main/test'} component={TestIndex}/>
+            <PrivateRoute exact path={'/main/example'}
+                          component={ExampleIndex}/>
+            <PrivateRoute exact path={'/main/test'} component={TestIndex}/>
           </Layout>
         </Switch>
       </Router>
