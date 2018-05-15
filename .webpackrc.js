@@ -40,6 +40,9 @@ export default {
   },
   "theme": "./src/styles/theme.js",
   publicPath,
-  hash: true,
+  // hash: true,
+  // html: {
+  //   "template": "./src/index.ejs"
+  // },
   define: {publicPath}
 }
