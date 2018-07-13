@@ -44,5 +44,6 @@ export default {
   // html: {
   //   "template": "./src/index.ejs"
   // },
-  define: {publicPath}
+  define: {publicPath},
+  es5ImcompatibleVersions: true
 }
