@@ -1,7 +1,10 @@
 /**
  * Created by XuQiang on 2017/2/27.
  */
-export const downloadFile = (fileName, url) => {
+export const downloadFile = (url, fileName = '') => {
+  if(!url) {
+    throw new Error('url param is must be provided.');
+  }
   if (isIE()) {
     ieDown(url)
   } else {
